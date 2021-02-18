@@ -21,7 +21,7 @@ setup(
       author_email='edina@ed.ac.uk',
       packages=find_packages(),
 #      packages=['plusGitRepo'],
-      package_data={'plusGitRepo': ['amd:/*']},
+      package_data={'plusGitRepo': ['main:/*']},
       install_requires=['nbgitpuller>=0.9.0'],
       include_package_data=True,
       classifiers=[
@@ -34,6 +34,6 @@ setup(
             'Topic :: Software Development :: Libraries :: Python Modules',
       ],
       data_files=[
-            ("share/jupyter/nbextensions/plusGitRepo", ['plusGitRepo/amd/index.js']),
+            ("share/jupyter/nbextensions/plusGitRepo", ['plusGitRepo/main/index.js']),
       ]
 )

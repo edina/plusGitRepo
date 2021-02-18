@@ -5,9 +5,8 @@ USER root
 WORKDIR /srv
 COPY . plusGitRepo
 RUN pip install /srv/plusGitRepo/
-RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
-#RUN jupyter nbextension install plusGitRepo  --py --sys-prefix
-RUN jupyter nbextension enable --py plusGitRepo
+RUN jupyter serverextension enable --py nbgitpuller --sys-prefix \
+    && jupyter nbextension enable --py plusGitRepo
 
 USER $NB_USER
 WORKDIR $HOME

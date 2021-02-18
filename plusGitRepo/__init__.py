@@ -2,7 +2,7 @@
 def _jupyter_nbextension_paths():
     return [{
         'section': 'tree',
-        'src': 'amd',
+        'src': 'main',
         'dest': 'plusGitRepo',
         'require': 'plusGitRepo/index'
     }]

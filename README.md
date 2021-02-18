@@ -14,7 +14,6 @@ You need to _enable_ both `nbgitpuller` **and** this package:
 git clone --single-branch --depth 1 https://github.edina.ac.uk/edina/repoGitPlus
 pip install -q ./repoGitPlus
 jupyter serverextension enable --py nbgitpuller --sys-prefix
-jupyter nbextension install plusGitRepo  --py --sys-prefix
 jupyter nbextension enable --py plusGitRepo
 ```
 
