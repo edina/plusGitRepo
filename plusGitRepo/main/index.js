@@ -151,15 +151,11 @@ define([
                                 {
                                   // construct the url that nbgitpuller needs
                                   var thisUrl = window.location.href;
-                                  console.log("plusGitRepoUsername:" + plusGitRepoUsername + " && plusGitRepoPassword:" + plusGitRepoPassword)
                                   if (plusGitRepoUsername && plusGitRepoPassword ) {
-                                    console.log("plusGitRepoUrl:" + plusGitRepoUrl)
                                     let [protocol, rest] = plusGitRepoUrl.split("://")
-                                    console.log("protocol" + protocol + " & rest: " + rest)
                                     plusGitRepoUrl = protocol + "://" + plusGitRepoUsername
                                       + ":" + plusGitRepoPassword  + "@" + rest
                                   }
-                                  console.log("plusGitRepoUrl:" + plusGitRepoUrl)
                                   var pullReqUrl = thisUrl.slice(0, thisUrl.indexOf("tree"))
                                       + "git-pull?repo=" + plusGitRepoUrl + "&branch="
                                       + plusGitRepoBranch;
