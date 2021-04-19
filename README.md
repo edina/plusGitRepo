@@ -29,10 +29,8 @@ Clicking on the `+GitRepo` button opens a popup to enter the git URL (and branch
 
 Note that the default branch is `master`. From mid-2020, GitHub switched to using `main` as the default name for the central branch in repositories.
 
-If you need to access an _authentincated_ repository, then you cn add your username & password to the url:
-
-* If you were given `https://github.com/edina/plusGitRepo.git` as the repo address to use, but needed to authenticate,
-* Then use the address `https://myUsername:pypassword@github.com/edina/plusGitRepo.git` as the URL
+If you need to access an _authentincated_ repository, then you can supply an appropriate username & password. These inputs are
+ _optional_, and only needed to access _authentincated_ repositories
 
 Clicking `Clone` will download the reposiory, and change you into that directory.
 

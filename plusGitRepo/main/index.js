@@ -104,6 +104,34 @@ define([
                   )
               )
               .append(
+                $("<p>")
+                  .append(
+                    $("<label>").attr("for", "plusGitRepoUsername")
+                    .text("Username*: ")
+                  )
+                  .append(
+                    $("<input>").attr("type", "text")
+                                .attr("name", "plusGitRepoUsername")
+                                .attr("id", "plusGitRepoUsername")
+                  )
+              )
+              .append(
+                $("<p>")
+                  .append(
+                    $("<label>").attr("for", "plusGitRepoPassword")
+                    .text("Password*: ")
+                  )
+                  .append(
+                    $("<input>").attr("type", "password")
+                                .attr("name", "plusGitRepoPassword")
+                                .attr("id", "plusGitRepoPassword")
+                  )
+              )
+              .append(
+                $("<div>").addClass(["pull-left", ""])
+                  .text("* Optional")
+              )
+              .append(
                 $("<div>").addClass(["pull-right", ""])
                 .append(
                   $("<button>").attr("type", "submit")
@@ -111,14 +139,23 @@ define([
                   .text("Clone")
                             .on("click", function(e) {
                               var plusGitRepoUrl =
-                                  $( "input#plusGitRepoUrl" ).val();
+                                $( "input#plusGitRepoUrl" ).val();
                               var plusGitRepoBranch =
-                              $( "input#plusGitRepoBranch" ).val();
+                                $( "input#plusGitRepoBranch" ).val();
+                              var plusGitRepoUsername = 
+                                $( "input#plusGitRepoUsername" ).val();
+                              var plusGitRepoPassword =
+                                $( "input#plusGitRepoPassword" ).val();
                               if (plusGitRepoUrl && plusGitRepoBranch ) {
                                 if (plusGitRepoUrl.indexOf("http") === 0)
                                 {
                                   // construct the url that nbgitpuller needs
                                   var thisUrl = window.location.href;
+                                  if (plusGitRepoUsername && plusGitRepoPassword ) {
+                                    let [protocol, rest] = plusGitRepoUrl.split("://")
+                                    plusGitRepoUrl = protocol + "://" + plusGitRepoUsername
+                                      + ":" + plusGitRepoPassword  + "@" + rest
+                                  }
                                   var pullReqUrl = thisUrl.slice(0, thisUrl.indexOf("tree"))
                                       + "git-pull?repo=" + plusGitRepoUrl + "&branch="
                                       + plusGitRepoBranch;
