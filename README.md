@@ -27,12 +27,18 @@ Clicking on the `+GitRepo` button opens a popup to enter the git URL (and branch
 
 ![Screenshot of the plusGitRepo imput window](modal.png)
 
-Note that the default branch is `master`. From mid-2020, GitHub switched to using `main` as the default name for the central branch in repositories.
+Note that the URL is the web address of the repository, the one you would use to look at the data online, not the git address: `https://github.com/GSA/data` not `https://github.com/GSA/data.git`
 
-If you need to access an _authentincated_ repository, then you can supply an appropriate username & password. These inputs are
- _optional_, and only needed to access _authentincated_ repositories
+`+GitRepo` will clone the default branch.
 
 Clicking `Clone` will download the reposiory, and change you into that directory.
+
+### Optional parameters
+
+ From mid-2020, GitHub switched from `master` to using `main` as the default name for the central branch in repositories. If you need a specific branch, you can specify it.
+
+If you need to access an _authentincated_ repository, then you can supply an appropriate username & password.
+
 
 ### Notes
 

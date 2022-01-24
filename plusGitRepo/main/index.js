@@ -88,19 +88,20 @@ define([
                     $("<input>").attr("type", "text")
                                 .attr("name", "plusGitRepoUrl")
                                 .attr("id", "plusGitRepoUrl")
+                                .attr("placeholder", "https://github.com/GSA/data")
                   )
               )
               .append(
                 $("<p>")
                   .append(
                     $("<label>").attr("for", "plusGitRepoBranch")
-                    .text("Branch: ")
+                    .text("Branch*: ")
                   )
                   .append(
                     $("<input>").attr("type", "text")
                                 .attr("name", "plusGitRepoBranch")
                                 .attr("id", "plusGitRepoBranch")
-                                .attr("value", "master")
+                                .attr("placeholder", "<default>")
                   )
               )
               .append(
@@ -140,13 +141,13 @@ define([
                             .on("click", function(e) {
                               var plusGitRepoUrl =
                                 $( "input#plusGitRepoUrl" ).val();
-                              var plusGitRepoBranch =
+                              var plusGitRepoBranch = 
                                 $( "input#plusGitRepoBranch" ).val();
                               var plusGitRepoUsername = 
                                 $( "input#plusGitRepoUsername" ).val();
                               var plusGitRepoPassword =
                                 $( "input#plusGitRepoPassword" ).val();
-                              if (plusGitRepoUrl && plusGitRepoBranch ) {
+                              if (plusGitRepoUrl ) {
                                 if (plusGitRepoUrl.indexOf("http") === 0)
                                 {
                                   // construct the url that nbgitpuller needs
@@ -157,8 +158,10 @@ define([
                                       + ":" + plusGitRepoPassword  + "@" + rest
                                   }
                                   var pullReqUrl = thisUrl.slice(0, thisUrl.indexOf("tree"))
-                                      + "git-pull?repo=" + plusGitRepoUrl + "&branch="
-                                      + plusGitRepoBranch;
+                                      + "git-pull?repo=" + plusGitRepoUrl;
+                                  if ( plusGitRepoBranch ) {
+                                    pullReqUrl += "&branch=" + plusGitRepoBranch;
+                                  }
                                   e.preventDefault();
                                   window.location.href = pullReqUrl;
                                 }
