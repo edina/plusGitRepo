@@ -23,7 +23,7 @@ setup(
 #      packages=['plusGitRepo'],
       package_data={'plusGitRepo': ['main:/*']},
 #      install_requires=['nbgitpuller>=0.9.0'],
-      install_requires=["nbgitpuller @ git@github.com:perllaghu/nbgitpuller.git@percolate_errors_up#egg=nbgitpuller"],
+      install_requires=['nbgitpuller @ git+https://github.com/perllaghu/nbgitpuller.git@percolate_errors_up#egg=nbgitpuller'],
 
       include_package_data=True,
       classifiers=[
